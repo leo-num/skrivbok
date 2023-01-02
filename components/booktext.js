@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 
 import { Heading, Text } from '@chakra-ui/react'
 
-import Layout from './layout'
-
 export default function BookText() {
   const [position, setPosition] = useState(0)
 
@@ -60,7 +58,7 @@ export default function BookText() {
   }, [])
 
   return (
-    <Layout>
+    <>
       <Heading fontSize="1.8rem">Kallocain av Karin Boye</Heading>
       <Heading mb={3} fontSize="1.5rem">
         Första kapitlet
@@ -76,6 +74,6 @@ export default function BookText() {
       {thumbsUpVisible && (
         <img className="image-thumbs-up" src="/images/thumbs-up.png"></img>
       )}
-    </Layout>
+    </>
   )
 }

@@ -4,7 +4,7 @@ import Head from 'next/head'
 // Chakra UI libraries:
 import { Box, Container } from '@chakra-ui/react'
 
-import SwitchMonospace from '../components/SwitchMonospace'
+import SwitchMonospace from './switchmonospace'
 
 export default function Layout({ children }) {
 	return (

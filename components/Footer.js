@@ -5,7 +5,7 @@ export default function Footer() {
 	return (
 		<Box as="footer" mt={6}>
 			<Text backgroundColor={'var(--background)'} color={'var(--text-primary)'} p={0} fontSize={'sm'}>
-				© 2022 - Made with ⌨️ by
+				© 2023 - Made with ⌨️ by
 				<Link href={'https://github.com/leo-num/skrivbok'}> leo-num</Link>
 			</Text>
 		</Box>

@@ -54,8 +54,8 @@ button {
 
 html,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
 
   font-weight: 500;
   min-height: 100vh;
@@ -87,7 +87,7 @@ main {
 .highlighted-char {
   color: var(--highlight);
   background-color: var(--almost-background);
-  border-bottom: 2px solid var(--highlight);
+  border-left: 2px solid var(--highlight);
 }
 
 .highlighted {
@@ -98,4 +98,8 @@ main {
   width: 3rem;
   aspect-ratio: 3/2;
   object-fit: contain;
+  position: absolute;
+
+  right: 20%;
+  z-index: 1;
 }

@@ -9,7 +9,7 @@
 	--almost-background: #cdd1e3;
 	--warning: #bf616a;
 	--highlight: #d08770;
-	--aurora: #a3be8c;
+	--success: #a3be8c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,7 +24,7 @@
 		--almost-background: #3b4252;
 		--warning: #bf616a;
 		--highlight: #d08770;
-		--aurora: #a3be8c;
+		--success: #a3be8c;
 	}
 }
 
@@ -109,5 +109,5 @@ main {
 }
 
 .paragraphFinished {
-	color: var(--aurora);
+	color: var(--success);
 }

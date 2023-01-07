@@ -6,6 +6,7 @@ import { Box, Container } from '@chakra-ui/react'
 
 // My components:
 import SwitchFontFamily from './switchfontfamily'
+import Footer from './footer'
 
 export default function Layout({ children }) {
 	return (
@@ -19,6 +20,7 @@ export default function Layout({ children }) {
 					<SwitchFontFamily />
 				</Box>
 				{children}
+				<Footer />
 			</Container>
 		</>
 	)

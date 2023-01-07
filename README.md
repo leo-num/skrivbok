@@ -5,6 +5,6 @@
 [![Last Commit](https://img.shields.io/github/last-commit/leo-num/skrivbok?style=for-the-badge)](https://github.com/leo-num/skrivbok/)
 [![Code Size](https://img.shields.io/github/languages/code-size/leo-num/skrivbok?style=for-the-badge)](https://github.com/leo-num/skrivbok/) [![Repo Size](https://img.shields.io/github/repo-size/leo-num/skrivbok?style=for-the-badge)](https://github.com/leo-num/skrivbok/)
 
-[Skrivbok](https://skrivbok.netlify.app/)
+📚[Skrivbok](https://skrivbok.netlify.app/)
 
 Det här är ett försök att lära mig nya saker, under förevändningen att göra en svensk klon av [typelit.io](https://typelit.io/).

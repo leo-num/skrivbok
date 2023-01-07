@@ -88,24 +88,18 @@ main {
 	line-height: 2.3rem;
 }
 
-.highlighted-char {
+.highlighted {
+	color: var(--primary);
+}
+
+.current-char {
 	color: var(--highlight);
 	background-color: var(--almost-background);
 	border-left: 2px solid var(--highlight);
 }
 
-.highlighted {
-	color: var(--primary);
-}
-
-.image-thumbs-up {
-	width: 3rem;
-	aspect-ratio: 3/2;
-	object-fit: contain;
-	position: absolute;
-
-	right: 30%;
-	z-index: 1;
+.not-yet-highlighted {
+	color: var(--text-primary);
 }
 
 .paragraphFinished {

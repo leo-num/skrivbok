@@ -49,7 +49,7 @@ export default function BookText() {
 			}
 
 			// Used to keep the current line centered in the viewport if scrolling is needed.
-			const spanElement = document.querySelector('.highlighted-char')
+			const spanElement = document.querySelector('.current-char')
 			spanElement.scrollIntoView({
 				behavior: 'smooth',
 				block: 'center',
@@ -106,8 +106,8 @@ export default function BookText() {
 			</Heading>
 			<Text id="pageBooktext">
 				<span className="highlighted">{paragraph.substring(0, position)}</span>
-				<span className="highlighted-char">{paragraph.substring(position, position + 1)}</span>
-				{paragraph.substring(position + 1)}
+				<span className="current-char">{paragraph.substring(position, position + 1)}</span>
+				<span className="not-yet-highlighted">{paragraph.substring(position + 1)}</span>
 			</Text>
 		</>
 	)

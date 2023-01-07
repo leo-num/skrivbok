@@ -1,7 +1,12 @@
 {
-  "folders": [
-	{
-		"path": "."
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"prettier.configPath": "/.prettier.config.js",
+		"prettier.printWidth": 120,
+		"prettier.tabWidth": 4
 	}
-]
 }

@@ -1,8 +1,11 @@
-import { Box, Switch } from '@chakra-ui/react'
-import { FormControl } from '@chakra-ui/react'
-import { Text } from '@chakra-ui/react'
+// React libraries:
 import { useState, useEffect } from 'react'
 
+// Chakra UI libraries:
+import { Box, FormControl, Switch, Text } from '@chakra-ui/react'
+
+// Not using this since implementing the 3-way switch.
+// Did work though.
 export default function SwitchMonospace() {
 	const [monospace, setMonospace] = useState(null)
 

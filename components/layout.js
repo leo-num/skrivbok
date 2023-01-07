@@ -4,7 +4,8 @@ import Head from 'next/head'
 // Chakra UI libraries:
 import { Box, Container } from '@chakra-ui/react'
 
-import SwitchMonospace from './switchmonospace'
+// My components:
+import SwitchFontFamily from './switchfontfamily'
 
 export default function Layout({ children }) {
 	return (
@@ -15,7 +16,7 @@ export default function Layout({ children }) {
 
 			<Container maxW="container.md" as="main" pt="5">
 				<Box width="100%" maxHeight="0" background="white" justifyContent="flex-end" display="flex">
-					<SwitchMonospace />
+					<SwitchFontFamily />
 				</Box>
 				{children}
 			</Container>

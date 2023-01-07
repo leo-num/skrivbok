@@ -1,3 +1,4 @@
+# node modules
 node_modules
 
 # Mac/OSX
@@ -6,3 +7,6 @@ node_modules
 # Environments
 .env
 .next
+
+# vs code
+.vscode

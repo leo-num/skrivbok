@@ -1,5 +1,8 @@
-import { Box, Text } from '@chakra-ui/react'
+// Next libraries:
 import Link from 'next/link'
+
+// Chakra UI libraries:
+import { Box, Text } from '@chakra-ui/react'
 
 export default function Footer() {
 	return (

@@ -14,7 +14,7 @@ export default function Layout({ children }) {
 				<title>Skrivbok</title>
 			</Head>
 
-			<Container maxW="container.md" as="main" pt="5" pt="20">
+			<Container maxW="container.md" as="main" pt="20">
 				<Box width="100%" maxHeight="0" background="white" justifyContent="flex-end" display="flex">
 					<SwitchFontFamily />
 				</Box>

@@ -9,6 +9,9 @@ import { Heading, Text } from '@chakra-ui/react'
 const paragraph =
 	'Den bok jag nu sätter mig ner att skriva måste verka meningslös på många - om jag alls vågar tänka mig, att "många" får läsa den - eftersom jag alldeles självmant, utan någons order, börjar ett sådant arbete och ändå inte själv är riktigt på det klara med vad avsikten är. Jag vill och måste, det är alltsammans. Allt mer och mer obönhörligt frågar man efter avsikten och planmässigheten i vad som göres och säges, så att helst inte ett ord ska falla på måfå - det är bara författaren till den här boken som har tvingats gå motsatta vägen, ut i det ändamålslösa. Ty fast mina år här som fånge och kemist - de måste vara över tjugu, tänker jag mig - har varit fulla nog ändå av arbete och brådska, måste det finnas något som inte tycker det är tillräckligt och som har lett och överblickat ett annat arbete inom mig, ett som jag själv inte hade någon möjlighet att överblicka och där jag ändå har varit djupt och nästan plågsamt medintresserad. Det arbetet kommer att vara slutfört, när jag väl har skrivit ner min bok. Jag inser alltså, hur förnuftsvidriga mina skriverier måste te sig inför allt rationellt och praktiskt tänkande, men jag skriver ändå.'
 
+// Count the words of the paragraph.
+const wordCount = paragraph.split(' ').length
+
 export default function BookText() {
 	// Position keeps track of how many characters have been typed.
 	const [position, setPosition] = useState(0)
@@ -92,8 +95,12 @@ export default function BookText() {
 			spanElements.forEach(span => {
 				span.classList.add('paragraphFinished')
 			})
+			// Display the WPM.
+			const wpm = Math.floor(wordCount / (timeElapsed / 60))
+			const wpmElement = document.querySelector('.wpm')
+			wpmElement.innerHTML = `Ord per minut: ${wpm}`
 		}
-	}, [position])
+	}, [position, timeElapsed])
 
 	return (
 		<>
@@ -109,6 +116,7 @@ export default function BookText() {
 				<span className="current-char">{paragraph.substring(position, position + 1)}</span>
 				<span className="not-yet-highlighted">{paragraph.substring(position + 1)}</span>
 			</Text>
+			<Text className="wpm"></Text>
 		</>
 	)
 }

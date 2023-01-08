@@ -13,6 +13,8 @@ const paragraph =
 const wordCount = paragraph.split(' ').length
 const errorCount = 0
 
+//============================================================================================================================
+
 export default function BookText() {
 	// Position keeps track of how many characters have been typed.
 	const [position, setPosition] = useState(0)
@@ -52,11 +54,10 @@ export default function BookText() {
 			} else {
 				// Add 1 to the error count.
 				errorCount = errorCount + 1
-				console.log(errorCount)
 			}
 
 			// Used to keep the current line centered in the viewport if scrolling is needed.
-			const spanElement = document.querySelector('.current-char')
+			const spanElement = document.querySelector('.current')
 			spanElement.scrollIntoView({
 				behavior: 'smooth',
 				block: 'center',
@@ -94,11 +95,6 @@ export default function BookText() {
 	useEffect(() => {
 		// If the user has typed the last character and the timer has stopped, color the whole paragraph green.
 		if (position === paragraph.length) {
-			// Make the whole paragraph green, all the characters in #pageBooktext.
-			const spanElements = document.querySelectorAll('#pageBooktext span')
-			spanElements.forEach(span => {
-				span.classList.add('paragraphFinished')
-			})
 			// Display the WPM.
 			const wpm = Math.floor(wordCount / (timeElapsed / 60))
 			const wpmElement = document.querySelector('.wpm')
@@ -112,19 +108,21 @@ export default function BookText() {
 				<span>
 					[{Math.floor(timeElapsed / 60)}m : {timeElapsed % 60}s]
 				</span>
-				<span className="vertical-divider"> | </span>
-				<span className="error-count"> {errorCount} fel </span>
-				<span className="vertical-divider"> | </span>
-				<span className="word-count">ord: {wordCount} </span>
+				<span> | </span>
+				<span> {errorCount} fel </span>
+				<span> | </span>
+				<span>ord: {wordCount} </span>
 			</Text>
 			<Heading fontSize="1.8rem">Kallocain av Karin Boye</Heading>
 			<Heading mb="3" fontSize="1.5rem">
 				Första kapitlet
 			</Heading>
-			<Text id="pageBooktext">
-				<span className="highlighted">{paragraph.substring(0, position)}</span>
-				<span className="current-char">{paragraph.substring(position, position + 1)}</span>
-				<span className="not-yet-highlighted">{paragraph.substring(position + 1)}</span>
+			<Text id="pageBooktext" fontSize="2xl">
+				<span style={{ color: '#a3be8c' }}>{paragraph.substring(0, position)}</span>
+				<span className="current" style={{ color: '#d08770', borderBottom: '1px solid #d08770' }}>
+					{paragraph.substring(position, position + 1)}
+				</span>
+				{paragraph.substring(position + 1)}
 			</Text>
 			<Text className="wpm"></Text>
 		</>

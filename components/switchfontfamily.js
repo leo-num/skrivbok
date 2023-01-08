@@ -34,13 +34,19 @@ export default function SwitchFontFamily() {
 			<Tabs index={tabIndex} onChange={handleTabsChange}>
 				<TabList>
 					<Tab>
-						<Text fontFamily="sans-serif">Sans</Text>
+						<Text fontSize={'xs'} fontFamily="sans-serif">
+							Sans
+						</Text>
 					</Tab>
 					<Tab>
-						<Text fontFamily="serif">Serif</Text>
+						<Text fontSize={'xs'} fontFamily="serif">
+							Serif
+						</Text>
 					</Tab>
 					<Tab>
-						<Text fontFamily="monospace">Monospace</Text>
+						<Text fontSize={'xs'} fontFamily="monospace">
+							Monospace
+						</Text>
 					</Tab>
 				</TabList>
 			</Tabs>

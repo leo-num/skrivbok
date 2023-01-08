@@ -181,10 +181,8 @@ export default function BookText() {
 				Första kapitlet
 			</Heading>
 			<Text id="pageBooktext" fontSize="2xl">
-				<span style={{ color: '#a3be8c' }}>{paragraphArray[paragraphCount].substring(0, position)}</span>
-				<span className="current" style={{ color: '#d08770', borderBottom: '1px solid #d08770' }}>
-					{paragraphArray[paragraphCount].substring(position, position + 1)}
-				</span>
+				<span className="textBehind">{paragraphArray[paragraphCount].substring(0, position)}</span>
+				<span className="current">{paragraphArray[paragraphCount].substring(position, position + 1)}</span>
 				{paragraphArray[paragraphCount].substring(position + 1)}
 			</Text>
 			<Text fontSize={'xs'} color={'#bf616a'} className="nextParagraph"></Text>

@@ -162,7 +162,6 @@ export default function BookText() {
 
 	return (
 		<>
-			{' '}
 			<Text fontFamily="monospace" fontSize="xs">
 				Paragraf {paragraphCount + 1} av {paragraphArray.length - 1}
 			</Text>

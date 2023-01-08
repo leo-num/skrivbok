@@ -11,6 +11,7 @@ const paragraph =
 
 // Count the words of the paragraph.
 const wordCount = paragraph.split(' ').length
+const errorCount = 0
 
 export default function BookText() {
 	// Position keeps track of how many characters have been typed.
@@ -46,9 +47,12 @@ export default function BookText() {
 				// Adds the ability to use backspace. For now it serves no purpose.
 				// moveCursor('backward')
 				// positionRef.current = positionRef.current - 1
+			} else if (event.key === 'Shift') {
+				// Dont count shift as an error.
 			} else {
-				// Wrong key pressed. Do nothing.
-				// Eventually implement a visual cue suggesting typing error, counting errors etc.
+				// Add 1 to the error count.
+				errorCount = errorCount + 1
+				console.log(errorCount)
 			}
 
 			// Used to keep the current line centered in the viewport if scrolling is needed.
@@ -104,8 +108,14 @@ export default function BookText() {
 
 	return (
 		<>
-			<Text>
-				[ {Math.floor(timeElapsed / 60)}m : {timeElapsed % 60}s ]
+			<Text fontFamily="monospace" fontSize="xs">
+				<span>
+					[{Math.floor(timeElapsed / 60)}m : {timeElapsed % 60}s]
+				</span>
+				<span className="vertical-divider"> | </span>
+				<span className="error-count"> {errorCount} fel </span>
+				<span className="vertical-divider"> | </span>
+				<span className="word-count">ord: {wordCount} </span>
 			</Text>
 			<Heading fontSize="1.8rem">Kallocain av Karin Boye</Heading>
 			<Heading mb="3" fontSize="1.5rem">

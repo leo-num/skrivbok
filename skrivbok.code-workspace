@@ -5,8 +5,10 @@
 		}
 	],
 	"settings": {
-		"prettier.configPath": "/.prettier.config.js",
+		"prettier.configPath": ".prettierrc",
 		"prettier.printWidth": 120,
-		"prettier.tabWidth": 4
+		"prettier.tabWidth": 4,
+		"prettier.semi": false,
+		"prettier.useTabs": true
 	}
 }

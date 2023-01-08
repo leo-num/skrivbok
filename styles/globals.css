@@ -102,6 +102,10 @@ main {
 	color: var(--text-primary);
 }
 
+.error-count {
+	color: var(--warning);
+}
+
 .paragraphFinished {
 	color: var(--success);
 }

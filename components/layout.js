@@ -2,10 +2,10 @@
 import Head from 'next/head'
 
 // Chakra UI libraries:
-import { Box, Container } from '@chakra-ui/react'
+import { Container } from '@chakra-ui/react'
 
 // My components:
-import SwitchFontFamily from './switchfontfamily'
+import Header from './header'
 
 export default function Layout({ children }) {
 	return (
@@ -13,11 +13,8 @@ export default function Layout({ children }) {
 			<Head>
 				<title>Skrivbok</title>
 			</Head>
-
+			<Header />
 			<Container maxW="container.md" as="main" pt="20">
-				<Box width="100%" maxHeight="0" background="white" justifyContent="flex-end" display="flex">
-					<SwitchFontFamily />
-				</Box>
 				{children}
 			</Container>
 		</>

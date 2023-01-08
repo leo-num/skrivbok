@@ -1,14 +1,26 @@
-// Basic Nord theme colors, css-resets, and my classes.
-import '@styles/globals.css'
+import { AnimatePresence } from 'framer-motion'
+import Chakra from '../components/chakra'
 
-// Wrap the app in the ChakraProvider
-import { ChakraProvider } from '@chakra-ui/react'
+if (typeof window !== 'undefined') {
+	window.history.scrollRestoration = 'manual'
+}
 
-function Website({ Component, pageProps }) {
+function Website({ Component, pageProps, router }) {
 	return (
-		<ChakraProvider>
-			<Component {...pageProps} />
-		</ChakraProvider>
+		<Chakra cookies={pageProps.cookies}>
+			<AnimatePresence
+				mode="wait"
+				initial={true}
+				onExitComplete={() => {
+					if (typeof window !== 'undefined') {
+						window.scrollTo({ top: 0 })
+					}
+				}}
+			>
+				<Component {...pageProps} key={router.route} />
+			</AnimatePresence>
+		</Chakra>
 	)
 }
+
 export default Website

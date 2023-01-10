@@ -46,34 +46,30 @@ const paragraphArray = [
 ]
 
 // Count the words of the paragraph.
-const paragraphCount = 0
-const wordCount = paragraphArray[paragraphCount].split(' ').length
-const errorCount = 0
 
 //================================================================================
 
 export default function BookText() {
+	const [paragraphCount, setParagraphCount] = useState(0)
+	const [wordCount, setWordCount] = useState(0)
+	const [errorCount, setErrorCount] = useState(0)
 	// Position keeps track of how many characters have been typed.
 	const [position, setPosition] = useState(0)
-
 	// Time elapsed is a simple timer that starts when the user starts typing.
 	// And stops when the user has typed the last character in the paragraph.
 	const [timeElapsed, setTimeElapsed] = useState(0)
-
 	// isRunning is used to start and stop the timer.
 	const [isRunning, setIsRunning] = useState(false)
-
+	// useRef Hook - ESLint warned me about the way I handled my variable earlier.
+	// So I implemented this Hook to apease it. I hope too understand the concept soon.
+	const positionRef = useRef(0)
 	// This function is used to move the cursor forward or backward.
 	// Backwards is not used for now.
 	const moveCursor = direction => {
 		const updatePosition = direction === 'forward' ? 1 : -1
 		setPosition(prevPos => prevPos + updatePosition)
 	}
-
-	// useRef Hook - ESLint warned me about the way I handled my variable earlier.
-	// So I implemented this Hook to apease it. I hope too understand the concept soon.
-	const positionRef = useRef(0)
-
+	// KEYDOWN EVENT LISTENER
 	useEffect(() => {
 		const handleKeyDown = event => {
 			// Mainly to prevent scrolling when pressing space.
@@ -92,24 +88,24 @@ export default function BookText() {
 				// If the user has typed the last character and presses enter, load the next paragraph.
 				// Check that there is one more paragraph to load.
 				if (paragraphCount < paragraphArray.length - 1) {
+					// The paragraph that was finished was not the last one.
 					positionRef.current = 0
 					setPosition(0)
 					setTimeElapsed(0)
 					setIsRunning(false)
-					paragraphCount = paragraphCount + 1
-					wordCount = paragraphArray[paragraphCount].split(' ').length
-					errorCount = 0
-
+					setParagraphCount(prevParagraphCount => prevParagraphCount + 1)
+					setErrorCount(0)
+					setWordCount(paragraphArray[paragraphCount].split(' ').length)
 					const nextParagraph = document.querySelector('.nextParagraph')
 					nextParagraph.innerHTML = ''
 				} else {
-					// If there is no more paragraphs, display a message.
+					// The paragraph that was finished was the last one.
 					const nextParagraph = document.querySelector('.nextParagraph')
 					nextParagraph.innerHTML = `> Du har nått slutet.`
 				}
 			} else {
 				// Add 1 to the error count.
-				errorCount = errorCount + 1
+				setErrorCount(prevErrorCount => prevErrorCount + 1)
 			}
 
 			// Used to keep the current line centered in the viewport if scrolling is needed.
@@ -128,16 +124,14 @@ export default function BookText() {
 		return () => {
 			document.removeEventListener('keydown', handleKeyDown)
 		}
-	}, [])
+	}, [paragraphCount])
 
-	// This useEffect is used to start and stop the timer.
-	// When the first character is typed, position is 1 and the timer starts.
-	// When the last character is typed, position is equal to the length of the paragraph and the timer stops.
+	// START STOP TIMER
 	useEffect(() => {
 		setIsRunning(position === 1 ? true : position === paragraphArray[paragraphCount].length ? false : isRunning)
-	}, [position, isRunning])
+	}, [position, isRunning, paragraphCount])
 
-	// This useEffect is used to update the timer.
+	// UPDATE TIMER
 	useEffect(() => {
 		if (isRunning) {
 			const interval = setInterval(() => {
@@ -148,17 +142,20 @@ export default function BookText() {
 		}
 	}, [isRunning])
 
+	// HANDLE END OF PARAGRAPH
 	useEffect(() => {
-		// If the user has typed the last character and the timer has stopped, color the whole paragraph green.
 		if (position === paragraphArray[paragraphCount].length) {
-			// Display the WPM.
+			//  1. The end has been reached. Count WPM and display it.
 			const wpm = Math.floor(wordCount / (timeElapsed / 60))
-			const wpmElement = document.querySelector('.wpm')
-			wpmElement.innerHTML = `Ord per minut: ${wpm}`
 			const nextParagraph = document.querySelector('.nextParagraph')
 			nextParagraph.innerHTML = `> Nästa [enter]`
+			const wpmElement = document.querySelector('.wpm')
+			wpmElement.innerHTML = `Ord per minut: ${wpm}`
+
+			// 2. Write the number of the paragraph to the local storage, as a string.
+			// TODO
 		}
-	}, [position, timeElapsed])
+	}, [position, timeElapsed, paragraphCount, wordCount])
 
 	return (
 		<>

@@ -23,8 +23,16 @@ export default function SwitchSerif() {
 			<Text fontSize="xs" fontFamily="serif" mb="2" align="center">
 				Serif
 			</Text>
-			<FormControl display="flex" alignItems="center" mr="10" justifyContent="center">
-				<Switch id="switch-serif" onChange={toggleSerif} colorScheme="gray" />
+			<FormControl
+				display="flex"
+				alignItems="center"
+				mr="10"
+				justifyContent="center">
+				<Switch
+					id="switch-serif"
+					onChange={toggleSerif}
+					colorScheme="gray"
+				/>
 			</FormControl>
 		</Box>
 	)

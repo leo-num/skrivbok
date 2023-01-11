@@ -7,9 +7,15 @@ import { Box, Text } from '@chakra-ui/react'
 export default function Footer() {
 	return (
 		<Box as="footer" mt={6} mb={6}>
-			<Text backgroundColor={'var(--background)'} color={'var(--text-primary)'} p={0} fontSize={'sm'}>
+			<Text
+				backgroundColor={'var(--background)'}
+				color={'var(--text-primary)'}
+				p={0}
+				fontSize={'sm'}>
 				© {new Date().getFullYear()} - Made with ❤️ by
-				<Link href={'https://github.com/leo-num/skrivbok'}> leo-num</Link>
+				<Link href={'https://github.com/leo-num/skrivbok'}>
+					leo-num
+				</Link>
 			</Text>
 		</Box>
 	)

@@ -45,8 +45,6 @@ const paragraphArray = [
 	'Brevet var från Propagandaministeriets sjunde byrå. Och för att förklara innehållet måste jag gå något tillbaka i tiden.'
 ]
 
-// Count the words of the paragraph.
-
 //================================================================================
 
 export default function BookText() {
@@ -69,13 +67,17 @@ export default function BookText() {
 		const updatePosition = direction === 'forward' ? 1 : -1
 		setPosition(prevPos => prevPos + updatePosition)
 	}
-	// KEYDOWN EVENT LISTENER
+
+	// ⌨ KEYDOWN EVENT LISTENER
 	useEffect(() => {
 		const handleKeyDown = event => {
 			// Mainly to prevent scrolling when pressing space.
 			event.preventDefault()
 
-			if (event.key === paragraphArray[paragraphCount][positionRef.current]) {
+			if (
+				event.key ===
+				paragraphArray[paragraphCount][positionRef.current]
+			) {
 				positionRef.current = positionRef.current + 1
 				moveCursor('forward')
 			} else if (event.key === 'Backspace') {
@@ -84,7 +86,10 @@ export default function BookText() {
 				// positionRef.current = positionRef.current - 1
 			} else if (event.key === 'Shift') {
 				// Dont count shift as an error.
-			} else if (event.key === 'Enter' && positionRef.current === paragraphArray[paragraphCount].length) {
+			} else if (
+				event.key === 'Enter' &&
+				positionRef.current === paragraphArray[paragraphCount].length
+			) {
 				// If the user has typed the last character and presses enter, load the next paragraph.
 				// Check that there is one more paragraph to load.
 				if (paragraphCount < paragraphArray.length - 1) {
@@ -93,14 +98,20 @@ export default function BookText() {
 					setPosition(0)
 					setTimeElapsed(0)
 					setIsRunning(false)
-					setParagraphCount(prevParagraphCount => prevParagraphCount + 1)
+					setParagraphCount(
+						prevParagraphCount => prevParagraphCount + 1
+					)
 					setErrorCount(0)
-					setWordCount(paragraphArray[paragraphCount].split(' ').length)
-					const nextParagraph = document.querySelector('.nextParagraph')
+					setWordCount(
+						paragraphArray[paragraphCount].split(' ').length
+					)
+					const nextParagraph =
+						document.querySelector('.nextParagraph')
 					nextParagraph.innerHTML = ''
 				} else {
 					// The paragraph that was finished was the last one.
-					const nextParagraph = document.querySelector('.nextParagraph')
+					const nextParagraph =
+						document.querySelector('.nextParagraph')
 					nextParagraph.innerHTML = `> Du har nått slutet.`
 				}
 			} else {
@@ -126,12 +137,18 @@ export default function BookText() {
 		}
 	}, [paragraphCount])
 
-	// START STOP TIMER
+	// ⏱️ START STOP TIMER
 	useEffect(() => {
-		setIsRunning(position === 1 ? true : position === paragraphArray[paragraphCount].length ? false : isRunning)
+		setIsRunning(
+			position === 1
+				? true
+				: position === paragraphArray[paragraphCount].length
+				? false
+				: isRunning
+		)
 	}, [position, isRunning, paragraphCount])
 
-	// UPDATE TIMER
+	// ⏱️ UPDATE TIMER
 	useEffect(() => {
 		if (isRunning) {
 			const interval = setInterval(() => {
@@ -178,11 +195,21 @@ export default function BookText() {
 				Första kapitlet
 			</Heading>
 			<Text id="pageBooktext" fontSize="2xl">
-				<span className="textBehind">{paragraphArray[paragraphCount].substring(0, position)}</span>
-				<span className="current">{paragraphArray[paragraphCount].substring(position, position + 1)}</span>
+				<span className="textBehind">
+					{paragraphArray[paragraphCount].substring(0, position)}
+				</span>
+				<span className="current">
+					{paragraphArray[paragraphCount].substring(
+						position,
+						position + 1
+					)}
+				</span>
 				{paragraphArray[paragraphCount].substring(position + 1)}
 			</Text>
-			<Text fontSize={'xs'} color={'#bf616a'} className="nextParagraph"></Text>
+			<Text
+				fontSize={'xs'}
+				color={'#bf616a'}
+				className="nextParagraph"></Text>
 		</>
 	)
 }

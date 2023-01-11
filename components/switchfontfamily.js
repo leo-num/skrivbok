@@ -20,17 +20,24 @@ export default function SwitchFontFamily() {
 		const textElement = document.getElementById('pageBooktext')
 
 		if (tabIndex === 0) {
-			textElement.style.fontFamily = 'sans-serif'
+			textElement.style.fontFamily = 'Roboto, sans-serif'
 		} else if (tabIndex === 1) {
-			textElement.style.fontFamily = 'serif'
+			textElement.style.fontFamily = 'Merriweather ,serif'
 		} else if (tabIndex === 2) {
-			textElement.style.fontFamily = 'monospace'
+			textElement.style.fontFamily = 'Roboto Mono, monospace'
 		}
 	}, [tabIndex])
 
 	return (
 		<Box>
-			<input type="range" min="0" max="2" value={tabIndex} onChange={handleSliderChange} hidden={true} />
+			<input
+				type="range"
+				min="0"
+				max="2"
+				value={tabIndex}
+				onChange={handleSliderChange}
+				hidden={true}
+			/>
 			<Tabs index={tabIndex} onChange={handleTabsChange}>
 				<TabList>
 					<Tab>

@@ -16,18 +16,19 @@ const ThemeToggleButton = () => {
 				initial={{ y: 0, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
 				exit={{ y: 0, opacity: 0 }}
-				transition={{ duration: 0.2 }}
-			>
+				transition={{ duration: 0.2 }}>
 				<IconButton
 					aria-label="Toggle theme"
 					colorScheme={useColorModeValue('gray', 'gray')}
-					icon={useColorModeValue(<BsLightbulbOff />, <BsLightbulbFill />)}
+					icon={useColorModeValue(
+						<BsLightbulbOff />,
+						<BsLightbulbFill />
+					)}
 					onClick={toggleColorMode}
 					isRound={true}
 					background="transparent"
 					border="none"
-					ml={5}
-				></IconButton>
+					ml={5}></IconButton>
 			</motion.div>
 		</AnimatePresence>
 	)

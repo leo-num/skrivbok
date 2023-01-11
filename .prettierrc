@@ -1,8 +1,9 @@
 {
 	"arrowParens": "avoid",
 	"bracketSpacing": true,
+	"bracketSameLine": true,
 	"endOfLine": "lf",
-	"printWidth": 120,
+	"printWidth": 80,
 	"semi": false,
 	"singleQuote": true,
 	"tabWidth": 4,
@@ -12,7 +13,7 @@
 		{
 			"files": "*.md",
 			"options": {
-				"printWidth": 80,
+				"printWidth": 120,
 				"useTabs": false,
 				"trailingComma": "none",
 				"arrowParens": "avoid",

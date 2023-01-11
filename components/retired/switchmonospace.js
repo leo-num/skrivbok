@@ -23,8 +23,16 @@ export default function SwitchMonospace() {
 			<Text fontSize="xs" fontFamily="monospace" mb="2" align="center">
 				Monospace
 			</Text>
-			<FormControl display="flex" alignItems="center" mr="10" justifyContent="center">
-				<Switch id="switch-monospace" onChange={toggleMonospace} colorScheme="gray" />
+			<FormControl
+				display="flex"
+				alignItems="center"
+				mr="10"
+				justifyContent="center">
+				<Switch
+					id="switch-monospace"
+					onChange={toggleMonospace}
+					colorScheme="gray"
+				/>
 			</FormControl>
 		</Box>
 	)

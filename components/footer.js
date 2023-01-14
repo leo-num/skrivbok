@@ -12,7 +12,7 @@ export default function Footer() {
 				color={'var(--text-primary)'}
 				p={0}
 				fontSize={'sm'}>
-				© {new Date().getFullYear()} - Made with ❤️ by
+				© {new Date().getFullYear()} - Made with ❤️ by&nbsp;
 				<Link href={'https://github.com/leo-num/skrivbok'}>
 					leo-num
 				</Link>

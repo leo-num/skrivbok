@@ -74,19 +74,19 @@ export default function Home({}) {
 						p="2"
 						display={'inline-flex'}>
 						<Link href="/Kallocain/0">
-							<Image
-								className="bookCover"
-								src="images/Kallocain.jpg"
-								alt="Kallocain"
-								w={'72px'}
-								h={'102px'}
-								p={2}
-								sx={{
-									':hover': {
-										cursor: 'pointer'
-									}
-								}}
-							/>
+							<Box h={'100px'}>
+								<Image
+									className="bookCover"
+									src="images/Kallocain.jpg"
+									alt="Kallocain"
+									p={2}
+									sx={{
+										':hover': {
+											cursor: 'pointer'
+										}
+									}}
+								/>
+							</Box>
 						</Link>
 						<VStack p={2} display={'inline-block'}>
 							<Heading
@@ -112,19 +112,19 @@ export default function Home({}) {
 						p="2"
 						display={'inline-flex'}>
 						<Link href="/doktorglas/0">
-							<Image
-								className="bookCover"
-								src="images/DoktorGlas.jpg"
-								alt="Doktor Glas"
-								w={'72px'}
-								h={'102px'}
-								p={2}
-								sx={{
-									':hover': {
-										cursor: 'pointer'
-									}
-								}}
-							/>
+							<Box h={'100px'}>
+								<Image
+									className="bookCover"
+									src="images/DoktorGlas.jpg"
+									alt="Doktor Glas"
+									p={2}
+									sx={{
+										':hover': {
+											cursor: 'pointer'
+										}
+									}}
+								/>
+							</Box>
 						</Link>
 						<VStack p={2} display={'inline-block'}>
 							<Heading
@@ -149,19 +149,19 @@ export default function Home({}) {
 						p="2"
 						display={'inline-flex'}>
 						<Link href="/KejsarnAvPortugallien/0">
-							<Image
-								className="bookCover"
-								src="images/KejsarnAvPortugallien.png"
-								alt="Kejsarn av Portugallien"
-								w={'72px'}
-								h={'102px'}
-								p={2}
-								sx={{
-									':hover': {
-										cursor: 'pointer'
-									}
-								}}
-							/>
+							<Box h={'100px'}>
+								<Image
+									className="bookCover"
+									src="images/KejsarnAvPortugallien.png"
+									alt="Kejsarn av Portugallien"
+									p={2}
+									sx={{
+										':hover': {
+											cursor: 'pointer'
+										}
+									}}
+								/>
+							</Box>
 						</Link>
 						<VStack p={2} display={'inline-block'}>
 							<Heading

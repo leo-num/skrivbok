@@ -126,7 +126,7 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 	useEffect(() => {
 		if (position === page.length) {
 			const nextParagraph = document.querySelector('.nextParagraph')
-			nextParagraph.innerHTML = `> Nästa [enter]`
+			nextParagraph.innerHTML = `Tryck [enter] för nästa sida.`
 
 			// 2. Write the number of the paragraph to the local storage, as a string.
 			// TODO
@@ -135,12 +135,6 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 
 	return (
 		<>
-			<Link
-				href="/[bookTitle]/[pageNumber]"
-				as={`/${bookTitle}/${parseInt(pageNumber) + 1}`}
-				prefetch>
-				<a style={{ display: 'none' }}>Nästa sida</a>
-			</Link>
 			<Box id="indexHeader" borderBottom={'solid'}>
 				<Text fontSize={'md'}>
 					<Link href="/">[Tillbaka]</Link>
@@ -157,7 +151,7 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 			<Text fontFamily="monospace" fontSize="xs" pt={2}>
 				Sida {parseInt(pageNumber) + 1} av {totalPageNumber}
 			</Text>
-			<Text fontFamily="monospace" fontSize="xs" pb={2}>
+			<Text fontFamily="monospace" fontSize="xs" pb={3}>
 				<span>
 					[{Math.floor(timeElapsed / 60)}m : {timeElapsed % 60}s]
 				</span>
@@ -166,13 +160,7 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 				<span> | </span>
 				<span>Ord på sidan: {page.split(' ').length}</span>
 				<span> | </span>
-				<span className="wpm">
-					Ord per minut:
-					{Math.floor(
-						page.substring(0, position).split(' ').length /
-							(timeElapsed / 60)
-					)}
-				</span>
+				<span className="wpm"></span>
 			</Text>
 
 			<Heading fontSize="1.8rem" pb={2}>

@@ -39,18 +39,24 @@ export default function Home({}) {
 							fontFamily={'Merriweather'}
 							as="p"
 							textAlign="left">
-							Kombinera skrivövningar med läsning. Inspirerad av
+							Skriv snabbt, eller långsamt. Helt som du önskar.
+							Läs böcker. Inspirerad av{' '}
 							<a
 								href="https://typelit.io/"
 								className="externalLink"
 								rel="noreferrer"
 								target="_blank">
-								{' '}
 								typelit.io
 							</a>
-							. Texter är hämtade från från{' '}
+							.
+						</Text>
+						<Text
+							fontFamily={'Merriweather'}
+							as="p"
+							textAlign="left">
+							Texter är hämtade från{' '}
 							<a
-								href="https://runeberg.org/"
+								href="http://runeberg.org/"
 								className="externalLink"
 								rel="noreferrer"
 								target="_blank">
@@ -69,7 +75,8 @@ export default function Home({}) {
 						display={'inline-flex'}>
 						<Link href="/Kallocain/0">
 							<Image
-								src="books/Kallocain.jpg"
+								className="bookCover"
+								src="images/Kallocain.jpg"
 								alt="Kallocain"
 								w={'72px'}
 								h={'102px'}
@@ -93,7 +100,6 @@ export default function Home({}) {
 							<Text
 								as="p"
 								fontFamily={'Merrriweather'}
-								size={''}
 								textAlign="left">
 								Karin Boye
 							</Text>
@@ -107,7 +113,8 @@ export default function Home({}) {
 						display={'inline-flex'}>
 						<Link href="/doktorglas/0">
 							<Image
-								src="books/DoktorGlas.jpg"
+								className="bookCover"
+								src="images/DoktorGlas.jpg"
 								alt="Doktor Glas"
 								w={'72px'}
 								h={'102px'}
@@ -130,7 +137,6 @@ export default function Home({}) {
 							<Text
 								as="p"
 								fontFamily={'Merrriweather'}
-								size={''}
 								textAlign="left">
 								Hjalmar Söderberg
 							</Text>
@@ -144,7 +150,8 @@ export default function Home({}) {
 						display={'inline-flex'}>
 						<Link href="/KejsarnAvPortugallien/0">
 							<Image
-								src="books/KejsarnAvPortugallien.jpg"
+								className="bookCover"
+								src="images/KejsarnAvPortugallien.png"
 								alt="Kejsarn av Portugallien"
 								w={'72px'}
 								h={'102px'}

@@ -10,20 +10,21 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 
 	// Convert the page into a valid string, and strip the first and last character.
 	const page = book
+	const [errorCount, setErrorCount] = useState(0)
 
-	// const [paragraphCount, setParagraphCount] = useState(0)
-	// const [wordCount, setWordCount] = useState(0)
-	//const [errorCount, setErrorCount] = useState(0)
 	// Position keeps track of how many characters have been typed.
 	const [position, setPosition] = useState(0)
+	// useRef Hook - ESLint warned me about the way I handled my variable earlier.
+	// So I implemented this Hook to apease it. I hope too understand the concept soon.
+	// It works but I dont know why.
+	const positionRef = useRef(0)
+
 	// Time elapsed is a simple timer that starts when the user starts typing.
 	// And stops when the user has typed the last character in the paragraph.
+
 	const [timeElapsed, setTimeElapsed] = useState(0)
 	// isRunning is used to start and stop the timer.
 	const [isRunning, setIsRunning] = useState(false)
-	// useRef Hook - ESLint warned me about the way I handled my variable earlier.
-	// So I implemented this Hook to apease it. I hope too understand the concept soon.
-	const positionRef = useRef(0)
 	// This function is used to move the cursor forward or backward.
 	// Backwards is not used for now.
 	const moveCursor = direction => {
@@ -58,9 +59,31 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 				nextParagraph.innerHTML = ``
 
 				router.push(`/${bookTitle}/${nextPage}`)
+			} else if (event.key === 'ArrowRight') {
+				// If the user presses the right arrow key, go to the next page.
+				// Add 1 to the pageNumber, treat them as integers. JS tends to treat them as strings...
+				// Set position to 0, so the user can start typing on the next page.
+				positionRef.current = 0
+				setPosition(0)
+				setErrorCount(0)
+				setTimeElapsed(0)
+				setIsRunning(false)
+				const nextPage = parseInt(pageNumber) + 1
+				router.push(`/${bookTitle}/${nextPage}`)
+			} else if (event.key === 'ArrowLeft' && pageNumber > 0) {
+				// If the user presses the left arrow key, go to the previous page.
+				// Subtract 1 from the pageNumber, treat them as integers. JS tends to treat them as strings...
+				// Set position to 0, so the user can start typing on the next page.
+				positionRef.current = 0
+				setPosition(0)
+				setErrorCount(0)
+				setTimeElapsed(0)
+				setIsRunning(false)
+				const nextPage = parseInt(pageNumber) - 1
+				router.push(`/${bookTitle}/${nextPage}`)
 			} else {
-				// Add 1 to the error count.
-				// setErrorCount(prevErrorCount => prevErrorCount + 1)
+				// Assume that the user has made an error.
+				setErrorCount(prevErrorCount => prevErrorCount + 1)
 			}
 
 			// Used to keep the current line centered in the viewport if scrolling is needed.
@@ -79,7 +102,7 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 		return () => {
 			document.removeEventListener('keydown', handleKeyDown)
 		}
-	}, [page, position, pageNumber, bookTitle, router])
+	}, [page, position, pageNumber, bookTitle, router, positionRef, errorCount])
 
 	// ⏱️ START STOP TIMER
 	useEffect(() => {
@@ -97,17 +120,13 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 
 			return () => clearInterval(interval)
 		}
-	}, [isRunning])
+	}, [isRunning, timeElapsed])
 
 	// ------ HANDLE END OF PARAGRAPH
 	useEffect(() => {
 		if (position === page.length) {
-			//  1. The end has been reached. Count WPM and display it.
-			// const wpm = Math.floor(wordCount / (timeElapsed / 60))
 			const nextParagraph = document.querySelector('.nextParagraph')
 			nextParagraph.innerHTML = `> Nästa [enter]`
-			// sconst wpmElement = document.querySelector('.wpm')
-			// swpmElement.innerHTML = `Ord per minut: ${wpm}`
 
 			// 2. Write the number of the paragraph to the local storage, as a string.
 			// TODO
@@ -116,6 +135,12 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 
 	return (
 		<>
+			<Link
+				href="/[bookTitle]/[pageNumber]"
+				as={`/${bookTitle}/${parseInt(pageNumber) + 1}`}
+				prefetch>
+				<a style={{ display: 'none' }}>Nästa sida</a>
+			</Link>
 			<Box id="indexHeader" borderBottom={'solid'}>
 				<Text fontSize={'md'}>
 					<Link href="/">[Tillbaka]</Link>
@@ -137,11 +162,17 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 					[{Math.floor(timeElapsed / 60)}m : {timeElapsed % 60}s]
 				</span>
 				<span> | </span>
-				<span> ?? fel </span>
+				<span> {errorCount} fel </span>
 				<span> | </span>
-				<span>Ord: ?? </span>
+				<span>Ord på sidan: {page.split(' ').length}</span>
 				<span> | </span>
-				{/* <span className="wpm">Ord per minut:</span> */}
+				<span className="wpm">
+					Ord per minut:
+					{Math.floor(
+						page.substring(0, position).split(' ').length /
+							(timeElapsed / 60)
+					)}
+				</span>
 			</Text>
 
 			<Heading fontSize="1.8rem" pb={2}>

@@ -92,7 +92,7 @@ export default function Home({}) {
 
 							<Text
 								as="p"
-								fontFamily={'Roboto'}
+								fontFamily={'Merrriweather'}
 								size={''}
 								textAlign="left">
 								Karin Boye
@@ -129,7 +129,7 @@ export default function Home({}) {
 							</Heading>
 							<Text
 								as="p"
-								fontFamily={'Roboto'}
+								fontFamily={'Merrriweather'}
 								size={''}
 								textAlign="left">
 								Hjalmar Söderberg
@@ -159,7 +159,7 @@ export default function Home({}) {
 						<VStack p={2} display={'inline-block'}>
 							<Heading
 								as="h2"
-								fontFamily={'Roboto'}
+								fontFamily={'Merriweather'}
 								size={'lg'}
 								textAlign="left">
 								<Link href="/KejsarnAvPortugallien/0">
@@ -168,7 +168,7 @@ export default function Home({}) {
 							</Heading>
 							<Text
 								as="p"
-								fontFamily={'Roboto'}
+								fontFamily={'Merrriweather'}
 								size={''}
 								textAlign="left">
 								Selma Lagerlöf

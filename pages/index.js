@@ -85,7 +85,8 @@ export default function Home({ books }) {
 						maxHeight="0"
 						background="white"
 						justifyContent="flex-end"
-						display="flex">
+						display="flex"
+					>
 						<ThemeToggleButton />
 					</Box>
 
@@ -95,48 +96,18 @@ export default function Home({ books }) {
 							fontFamily={'Merriweather'}
 							size="2xl"
 							pb={'2'}
-							textAlign="left">
+							textAlign="left"
+						>
 							Skrivbok
 						</Heading>
-						<Text
-							fontFamily={'Merriweather'}
-							as="p"
-							textAlign="left">
-							Skriv snabbt, eller långsamt. Helt som du önskar.
-							Läs böcker. Inspirerad av{' '}
-							<a
-								href="https://typelit.io/"
-								className="externalLink"
-								rel="noreferrer"
-								target="_blank">
-								typelit.io
-							</a>
-							.
-						</Text>
-						<Text
-							fontFamily={'Merriweather'}
-							as="p"
-							textAlign="left">
-							Texter är hämtade från{' '}
-							<a
-								href="http://runeberg.org/"
-								className="externalLink"
-								rel="noreferrer"
-								target="_blank">
-								Project Runeberg
-							</a>
-							.
+						<Text fontFamily={'Merriweather'} as="p" textAlign="left">
+							Skriv. Läs. Snabbt. Långsamt. Helt som du vill.
 						</Text>
 					</Box>
 				</Box>
 
-				<Box id="indexContent" p={2}>
-					<Box
-						className="bookCard"
-						w="100%"
-						pl={2}
-						pb={6}
-						display={'inline-flex'}>
+				<Box id="indexContent" p={4}>
+					<Box className="bookCard">
 						<Link href="/Kallocain/0" className="booklink">
 							<Image
 								className="bookCover"
@@ -155,16 +126,14 @@ export default function Home({ books }) {
 								as="h2"
 								fontFamily={'Merriweather'}
 								size={'lg'}
-								textAlign="left">
+								textAlign="left"
+							>
 								<Link href="/Kallocain/0" className="booklink">
 									Kallocain
 								</Link>
 							</Heading>
 
-							<Text
-								as="p"
-								fontFamily={'Merrriweather'}
-								textAlign="left">
+							<Text as="p" fontFamily={'Merrriweather'} textAlign="left">
 								Karin Boye
 							</Text>
 							<Text
@@ -173,13 +142,15 @@ export default function Home({ books }) {
 								fontFamily={'Merrriweather'}
 								fontSize={'xs'}
 								textAlign="left"
-								display={'inline-flex'}></Text>
+								display={'inline-flex'}
+							></Text>
 							<Text
 								as="p"
 								fontFamily={'Merrriweather'}
 								fontSize={'xs'}
 								textAlign="left"
-								display={'inline-flex'}>
+								display={'inline-flex'}
+							>
 								&nbsp;av&nbsp;
 							</Text>
 							<Text
@@ -187,7 +158,8 @@ export default function Home({ books }) {
 								fontFamily={'Merrriweather'}
 								fontSize={'xs'}
 								textAlign="left"
-								display={'inline-flex'}>
+								display={'inline-flex'}
+							>
 								{books[0].totalpages} sidor
 							</Text>
 							{/* <Text
@@ -201,12 +173,7 @@ export default function Home({ books }) {
 						</VStack>
 					</Box>
 
-					<Box
-						className="bookCard"
-						w="100%"
-						pl={2}
-						pb={6}
-						display={'inline-flex'}>
+					<Box className="bookCard">
 						<Link href="/doktorglas/0" className="booklink">
 							<Image
 								className="bookCover"
@@ -224,15 +191,13 @@ export default function Home({ books }) {
 								as="h2"
 								fontFamily={'Merriweather'}
 								size={'lg'}
-								textAlign="left">
+								textAlign="left"
+							>
 								<Link href="/DoktorGlas/0" className="booklink">
 									Doktor Glas
 								</Link>
 							</Heading>
-							<Text
-								as="p"
-								fontFamily={'Merrriweather'}
-								textAlign="left">
+							<Text as="p" fontFamily={'Merrriweather'} textAlign="left">
 								Hjalmar Söderberg
 							</Text>
 							<Text
@@ -241,13 +206,15 @@ export default function Home({ books }) {
 								fontFamily={'Merrriweather'}
 								fontSize={'xs'}
 								textAlign="left"
-								display={'inline-flex'}></Text>
+								display={'inline-flex'}
+							></Text>
 							<Text
 								as="p"
 								fontFamily={'Merrriweather'}
 								fontSize={'xs'}
 								textAlign="left"
-								display={'inline-flex'}>
+								display={'inline-flex'}
+							>
 								&nbsp;av&nbsp;
 							</Text>
 							<Text
@@ -255,7 +222,8 @@ export default function Home({ books }) {
 								fontFamily={'Merrriweather'}
 								fontSize={'xs'}
 								textAlign="left"
-								display={'inline-flex'}>
+								display={'inline-flex'}
+							>
 								{books[1].totalpages} sidor
 							</Text>
 							{/* <Text
@@ -269,15 +237,8 @@ export default function Home({ books }) {
 						</VStack>
 					</Box>
 
-					<Box
-						className="bookCard"
-						w="100%"
-						pl={2}
-						pb={6}
-						display={'inline-flex'}>
-						<Link
-							href="/KejsarnAvPortugallien/0"
-							className="booklink">
+					<Box className="bookCard">
+						<Link href="/KejsarnAvPortugallien/0" className="booklink">
 							<Image
 								className="bookCover"
 								src="images/KejsarnAvPortugallien.jpg"
@@ -295,10 +256,9 @@ export default function Home({ books }) {
 								as="h2"
 								fontFamily={'Merriweather'}
 								size={'lg'}
-								textAlign="left">
-								<Link
-									href="/KejsarnAvPortugallien/0"
-									className="booklink">
+								textAlign="left"
+							>
+								<Link href="/KejsarnAvPortugallien/0" className="booklink">
 									Kejsarn av Portugallien
 								</Link>
 							</Heading>
@@ -306,7 +266,8 @@ export default function Home({ books }) {
 								as="p"
 								fontFamily={'Merrriweather'}
 								size={''}
-								textAlin="left">
+								textAlin="left"
+							>
 								Selma Lagerlöf
 							</Text>
 							<Text
@@ -315,13 +276,15 @@ export default function Home({ books }) {
 								fontFamily={'Merrriweather'}
 								fontSize={'xs'}
 								textAlign="left"
-								display={'inline-flex'}></Text>
+								display={'inline-flex'}
+							></Text>
 							<Text
 								as="p"
 								fontFamily={'Merrriweather'}
 								fontSize={'xs'}
 								textAlign="left"
-								display={'inline-flex'}>
+								display={'inline-flex'}
+							>
 								&nbsp;av&nbsp;
 							</Text>
 							<Text
@@ -329,7 +292,8 @@ export default function Home({ books }) {
 								fontFamily={'Merrriweather'}
 								fontSize={'xs'}
 								textAlign="left"
-								display={'inline-flex'}>
+								display={'inline-flex'}
+							>
 								{books[2].totalpages} sidor
 							</Text>
 							{/* <Text
@@ -353,9 +317,7 @@ export async function getStaticProps() {
 	const fs = require('fs')
 	const path = require('path')
 
-	const bookFiles = fs.readdirSync(
-		path.join(process.cwd(), 'public', 'books')
-	)
+	const bookFiles = fs.readdirSync(path.join(process.cwd(), 'public', 'books'))
 
 	// Map the book files to an array of objects containing the book name and total pages.
 	// Only .txt files.
@@ -364,10 +326,7 @@ export async function getStaticProps() {
 		.map(file => {
 			const bookname = file.slice(0, -4) // strip '.txt' from the file name
 			const totalpages = fs
-				.readFileSync(
-					path.join(process.cwd(), 'public', 'books', file),
-					'utf8'
-				)
+				.readFileSync(path.join(process.cwd(), 'public', 'books', file), 'utf8')
 				.split('\n').length
 			const totaltcharacters = fs.readFileSync(
 				path.join(process.cwd(), 'public', 'books', file),

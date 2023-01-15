@@ -6,7 +6,7 @@ import { Box, Text } from '@chakra-ui/react'
 
 export default function Footer() {
 	return (
-		<Box as="footer" mt={6} mb={6}>
+		<Box as="footer" mt={6} mb={6} px={2}>
 			<Text
 				backgroundColor={'var(--background)'}
 				color={'var(--text-primary)'}

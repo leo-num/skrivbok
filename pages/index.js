@@ -79,7 +79,7 @@ export default function Home({ books }) {
 			</Head>
 
 			<Container maxW="container.md" as="main" height="100vh" pt="20">
-				<Box p="3">
+				<Box p="2">
 					<Box
 						width="100%"
 						maxHeight="0"
@@ -130,11 +130,12 @@ export default function Home({ books }) {
 					</Box>
 				</Box>
 
-				<Box id="indexContent">
+				<Box id="indexContent" p={2}>
 					<Box
 						className="bookCard"
 						w="100%"
-						p="2"
+						pl={2}
+						pb={6}
 						display={'inline-flex'}>
 						<Link href="/Kallocain/0" className="booklink">
 							<Image
@@ -203,14 +204,14 @@ export default function Home({ books }) {
 					<Box
 						className="bookCard"
 						w="100%"
-						p="2"
+						pl={2}
+						pb={6}
 						display={'inline-flex'}>
 						<Link href="/doktorglas/0" className="booklink">
 							<Image
 								className="bookCover"
 								src="images/DoktorGlas.jpg"
 								alt="Doktor Glas"
-								p={0}
 								sx={{
 									':hover': {
 										cursor: 'pointer'
@@ -271,7 +272,8 @@ export default function Home({ books }) {
 					<Box
 						className="bookCard"
 						w="100%"
-						p="2"
+						pl={2}
+						pb={6}
 						display={'inline-flex'}>
 						<Link
 							href="/KejsarnAvPortugallien/0"

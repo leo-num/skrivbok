@@ -128,10 +128,25 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 			const nextParagraph = document.querySelector('.nextParagraph')
 			nextParagraph.innerHTML = `Tryck [enter] för nästa sida.`
 
-			// 2. Write the number of the paragraph to the local storage, as a string.
-			// TODO
+			// Fetch the whole data object from localStorage,
+
+			const bookdata = JSON.parse(localStorage.getItem('bookdata'))
+			console.log('bookdata object fetched before update:', bookdata)
+			bookdata.books.forEach(book => {
+				if (book.name === bookTitle) {
+					console.log(
+						'book.name:',
+						book.name,
+						'completed pages',
+						book.completedpages + 1
+					)
+					book.completedpages = parseInt(pageNumber) + 1
+				}
+			})
+			console.log('bookdata object to write after update:', bookdata)
+			localStorage.setItem('bookdata', JSON.stringify(bookdata))
 		}
-	}, [position, timeElapsed, page])
+	}, [position, timeElapsed, page, bookTitle, pageNumber, book.name])
 
 	return (
 		<>

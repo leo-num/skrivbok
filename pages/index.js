@@ -283,7 +283,7 @@ export default function Home({ books }) {
 							<Box h={'160px'}>
 								<Image
 									className="bookCover"
-									src="images/KejsarnAvPortugallien.png"
+									src="images/KejsarnAvPortugallien.jpg"
 									alt="Kejsarn av Portugallien"
 									p={0}
 									sx={{

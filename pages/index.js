@@ -137,19 +137,17 @@ export default function Home({ books }) {
 						p="2"
 						display={'inline-flex'}>
 						<Link href="/Kallocain/0" className="booklink">
-							<Box h={'160px'}>
-								<Image
-									className="bookCover"
-									src="images/Kallocain.jpg"
-									alt="Kallocain"
-									p={0}
-									sx={{
-										':hover': {
-											cursor: 'pointer'
-										}
-									}}
-								/>
-							</Box>
+							<Image
+								className="bookCover"
+								src="images/Kallocain.jpg"
+								alt="Kallocain"
+								p={0}
+								sx={{
+									':hover': {
+										cursor: 'pointer'
+									}
+								}}
+							/>
 						</Link>
 						<VStack p={2} display={'inline-block'}>
 							<Heading
@@ -189,16 +187,16 @@ export default function Home({ books }) {
 								fontSize={'xs'}
 								textAlign="left"
 								display={'inline-flex'}>
-								{books[0].totalpages}
+								{books[0].totalpages} sidor
 							</Text>
-							<Text
+							{/* <Text
 								as="p"
 								fontFamily={'Merrriweather'}
 								fontSize={'xs'}
 								textAlign="left"
 								display={'block'}>
 								Tecken: {books[0].totaltcharacters}
-							</Text>
+							</Text> */}
 						</VStack>
 					</Box>
 
@@ -208,19 +206,17 @@ export default function Home({ books }) {
 						p="2"
 						display={'inline-flex'}>
 						<Link href="/doktorglas/0" className="booklink">
-							<Box h={'160px'}>
-								<Image
-									className="bookCover"
-									src="images/DoktorGlas.jpg"
-									alt="Doktor Glas"
-									p={0}
-									sx={{
-										':hover': {
-											cursor: 'pointer'
-										}
-									}}
-								/>
-							</Box>
+							<Image
+								className="bookCover"
+								src="images/DoktorGlas.jpg"
+								alt="Doktor Glas"
+								p={0}
+								sx={{
+									':hover': {
+										cursor: 'pointer'
+									}
+								}}
+							/>
 						</Link>
 						<VStack p={2} display={'inline-block'}>
 							<Heading
@@ -259,16 +255,16 @@ export default function Home({ books }) {
 								fontSize={'xs'}
 								textAlign="left"
 								display={'inline-flex'}>
-								{books[1].totalpages}
+								{books[1].totalpages} sidor
 							</Text>
-							<Text
+							{/* <Text
 								as="p"
 								fontFamily={'Merrriweather'}
 								fontSize={'xs'}
 								textAlign="left"
 								display={'block'}>
 								Tecken: {books[1].totaltcharacters}
-							</Text>
+							</Text> */}
 						</VStack>
 					</Box>
 
@@ -280,19 +276,17 @@ export default function Home({ books }) {
 						<Link
 							href="/KejsarnAvPortugallien/0"
 							className="booklink">
-							<Box h={'160px'}>
-								<Image
-									className="bookCover"
-									src="images/KejsarnAvPortugallien.jpg"
-									alt="Kejsarn av Portugallien"
-									p={0}
-									sx={{
-										':hover': {
-											cursor: 'pointer'
-										}
-									}}
-								/>
-							</Box>
+							<Image
+								className="bookCover"
+								src="images/KejsarnAvPortugallien.jpg"
+								alt="Kejsarn av Portugallien"
+								p={0}
+								sx={{
+									':hover': {
+										cursor: 'pointer'
+									}
+								}}
+							/>
 						</Link>
 						<VStack p={2} display={'inline-block'}>
 							<Heading
@@ -336,14 +330,14 @@ export default function Home({ books }) {
 								display={'inline-flex'}>
 								{books[2].totalpages} sidor
 							</Text>
-							<Text
+							{/* <Text
 								as="p"
 								fontFamily={'Merrriweather'}
 								fontSize={'xs'}
 								textAlign="left"
 								display={'block'}>
 								Tecken: {books[2].totaltcharacters}
-							</Text>
+							</Text> */}
 						</VStack>
 					</Box>
 				</Box>

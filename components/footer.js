@@ -6,7 +6,14 @@ import { Box, Text } from '@chakra-ui/react'
 
 export default function Footer() {
 	return (
-		<Box as="footer" mt={6} mb={6} px={2}>
+		<Box
+			as="footer"
+			maxW="container.lg"
+			mt={6}
+			mb={6}
+			px={2}
+			border="0px solid"
+		>
 			<Text fontSize={'sm'}>
 				© {new Date().getFullYear()} - Gjord med 🤷‍♂️ av&nbsp;
 				<Link href="https://github.com/leo-num/skrivbok">

@@ -48,20 +48,37 @@ export async function getStaticPaths() {
 	}
 }
 
+import { Box, Container } from '@chakra-ui/react'
+import Link from 'next/link'
 import Pagedisplay from '../../components/pagedisplay'
-import Layout from '../../components/layout'
 import Footer from '../../components/footer'
+
+import SwitchFontFamily from '../../components/switchfontfamily'
+import ThemeToggleButton from '../../components/themetogglebutton'
 
 export default function Book({ book, bookTitle, pageNumber, totalPageNumber }) {
 	return (
-		<Layout>
-			<Pagedisplay
-				book={book}
-				bookTitle={bookTitle}
-				pageNumber={pageNumber}
-				totalPageNumber={totalPageNumber}
-			/>
-			<Footer />
-		</Layout>
+		<>
+			<Container maxW="container.lg" as="main" pt="2">
+				<Box maxHeight="0" justifyContent="flex-start" display="flex">
+					<Link href="/" target={'_self'}>
+						<a>Tillbaka</a>
+					</Link>
+				</Box>
+				<Box maxHeight="0" justifyContent="flex-end" display="flex">
+					<SwitchFontFamily />
+					<ThemeToggleButton />
+				</Box>
+			</Container>
+			<Container maxW="container.lg" as="main" pt="20">
+				<Pagedisplay
+					book={book}
+					bookTitle={bookTitle}
+					pageNumber={pageNumber}
+					totalPageNumber={totalPageNumber}
+				/>
+				<Footer />
+			</Container>
+		</>
 	)
 }

@@ -174,7 +174,7 @@ export default function Home({ books }) {
 					</Box>
 
 					<Box className="bookCard">
-						<Link href="/doktorglas/0" className="booklink">
+						<Link href="/DoktorGlas/0" className="booklink">
 							<Image
 								className="bookCover"
 								src="images/DoktorGlas.jpg"
@@ -266,7 +266,7 @@ export default function Home({ books }) {
 								as="p"
 								fontFamily={'Merrriweather'}
 								size={''}
-								textAlin="left"
+								textAlign="left"
 							>
 								Selma Lagerlöf
 							</Text>

@@ -2,10 +2,9 @@ import { Box, Container, Text } from '@chakra-ui/react'
 
 export default function Stats({ timeElapsed, errorCount, page }) {
 	return (
-		<Container maxW="container.md" as="main" p="0">
-			<Box width="100%" maxHeight="0" justifyContent="flex-end" display="flex">
+		<Container maxW="container.lg" as="main" p="0">
+			<Box width="100%" maxHeight="0" justifyContent="flex-end">
 				<Text fontFamily="monospace" fontSize="xs" pb={3} textAlign="right">
-					<br />
 					<span>Ord på sidan: {page.split(' ').length}</span>
 					<br />
 					<span> {errorCount} fel </span>

@@ -1,4 +1,4 @@
-import { Heading, Text } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
 
 import { useRouter } from 'next/router'
 
@@ -6,7 +6,7 @@ import React, { useRef, useState, useEffect } from 'react'
 
 import Stats from './stats'
 import Pagenumber from './pagenumber'
-import Pageheader from './pageheader'
+import Pagetitle from './pagetitle'
 
 function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 	// Get the router object.
@@ -155,14 +155,10 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 	return (
 		<>
 			<Stats timeElapsed={timeElapsed} errorCount={errorCount} page={page} />
-			<Pageheader />
+			<Pagetitle bookTitle={bookTitle} />
 			<Pagenumber pageNumber={pageNumber} totalPageNumber={totalPageNumber} />
 
-			<Heading fontSize="1.8rem" pb={2}>
-				{bookTitle && bookTitle.replace(/([A-Z])/g, ' $1')}
-			</Heading>
-
-			<Text id="pageBooktext" fontSize="2xl">
+			<Text id="pageBooktext" fontSize="2xl" border={'0px solid'} >
 				<span className="textBehind">{page.substring(0, position)}</span>
 
 				<span className="current">

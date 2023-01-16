@@ -15,7 +15,8 @@ export default function Custom404() {
 				flexDirection="column"
 				alignItems="center"
 				justifyContent="center"
-				height="100vh">
+				height="100vh"
+			>
 				<Heading>404</Heading>
 				<Text>Ingen skrivbok här</Text>
 			</Box>

@@ -44,14 +44,6 @@ export default function Home({ books }) {
 				bookCard.querySelector('.completed').innerHTML =
 					bookdata.books[index].completedpages
 			})
-
-			// Change the links to the pages so that the user is taken to the correct page:
-			// They should be directed to /title/completedpages where title is the title of the book
-			// and completedpages is the number of pages the user has completed.
-			const booklinks = document.querySelectorAll('.booklink')
-			booklinks.forEach((booklink, index) => {
-				booklink.href = `/${bookdata.books[index].name}/${bookdata.books[index].completedpages}`
-			})
 		} else {
 			// If bookdata object exists, check if it is up to date:
 			const bookdata = JSON.parse(localStorage.getItem('bookdata'))
@@ -60,14 +52,6 @@ export default function Home({ books }) {
 			bookCards.forEach((bookCard, index) => {
 				bookCard.querySelector('.completed').innerHTML =
 					bookdata.books[index].completedpages
-			})
-			// Change the links to the pages so that the user is taken to the correct page:
-			// They should be directed to /title/completedpages where title is the title of the book
-			// and completedpages is the number of pages the user has completed.
-			const booklinks = document.querySelectorAll('.booklink')
-			booklinks.forEach((booklink, index) => {
-				booklink.href = `/${bookdata.books[index].name}/${bookdata.books[index].completedpages}`
-				console.log(booklink.href)
 			})
 		}
 	})

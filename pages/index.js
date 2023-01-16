@@ -78,7 +78,7 @@ export default function Home({ books }) {
 				<title>Skrivbok</title>
 			</Head>
 
-			<Container maxW="container.md" as="main" height="100vh" pt="20">
+			<Container maxW="container.lg" as="main" height="100vh" pt="20">
 				<Box p="2">
 					<Box
 						width="100%"

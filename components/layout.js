@@ -14,7 +14,7 @@ export default function Layout({ children }) {
 				<title>Skrivbok</title>
 			</Head>
 			<Header />
-			<Container maxW="container.md" as="main" pt="20">
+			<Container maxW="container.lg" as="main" pt="20">
 				{children}
 			</Container>
 		</>

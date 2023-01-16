@@ -242,7 +242,7 @@ export default function Home({ books }) {
 							<Image
 								className="bookCover"
 								src="images/KejsarnAvPortugallien.jpg"
-								alt="Kejsarn av Portugallien"
+								alt="Kejsarn Av Portugallien"
 								p={0}
 								sx={{
 									':hover': {

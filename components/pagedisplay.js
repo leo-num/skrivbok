@@ -1,8 +1,12 @@
-import { Box, Heading, Text } from '@chakra-ui/react'
+import { Heading, Text } from '@chakra-ui/react'
+
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 
 import React, { useRef, useState, useEffect } from 'react'
+
+import Stats from './stats'
+import Pagenumber from './pagenumber'
+import Pageheader from './pageheader'
 
 function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 	// Get the router object.
@@ -150,41 +154,16 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 
 	return (
 		<>
-			<Box id="indexHeader" borderBottom={'solid'}>
-				<Text fontSize={'md'}>
-					<Link href="/">[Tillbaka]</Link>
-				</Text>
-				<Heading
-					as="h1"
-					fontFamily={'Merriweather'}
-					size="2xl"
-					pb={'2'}
-					textAlign="left">
-					Skrivbok
-				</Heading>
-			</Box>
-			<Text fontFamily="monospace" fontSize="xs" pt={2}>
-				Sida {parseInt(pageNumber) + 1} av {totalPageNumber}
-			</Text>
-			<Text fontFamily="monospace" fontSize="xs" pb={3}>
-				<span>
-					[{Math.floor(timeElapsed / 60)}m : {timeElapsed % 60}s]
-				</span>
-				<span> | </span>
-				<span> {errorCount} fel </span>
-				<span> | </span>
-				<span>Ord på sidan: {page.split(' ').length}</span>
-				<span> | </span>
-				<span className="wpm"></span>
-			</Text>
+			<Stats timeElapsed={timeElapsed} errorCount={errorCount} page={page} />
+			<Pageheader />
+			<Pagenumber pageNumber={pageNumber} totalPageNumber={totalPageNumber} />
 
 			<Heading fontSize="1.8rem" pb={2}>
 				{bookTitle && bookTitle.replace(/([A-Z])/g, ' $1')}
 			</Heading>
+
 			<Text id="pageBooktext" fontSize="2xl">
-				<span className="textBehind">
-					{page.substring(0, position)}
-				</span>
+				<span className="textBehind">{page.substring(0, position)}</span>
 
 				<span className="current">
 					{page.substring(position, position + 1)}

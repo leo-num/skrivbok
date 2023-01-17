@@ -1,7 +1,6 @@
 // NextJS libraries:
 import Head from "next/head"
 import Link from "next/link"
-import { useEffect } from "react"
 
 // Chakra UI libraries:
 import { Box, Heading, Image, Container, Text, VStack } from "@chakra-ui/react"
@@ -10,50 +9,6 @@ import Footer from "../components/footer"
 import ThemeToggleButton from "../components/themetogglebutton"
 
 export default function Home({ books }) {
-  useEffect(() => {
-    if (!localStorage.getItem("bookdata")) {
-      const bookdata = {
-        objectversion: "1.0",
-        books: [
-          {
-            name: "Kallocain",
-            completedpages: 0,
-            totalpages: books[0].totalpages,
-            totaltcharacters: books[0].totaltcharacters
-          },
-          {
-            name: "DoktorGlas",
-            completedpages: 0,
-            totalpages: books[1].totalpages,
-            totaltcharacters: books[1].totaltcharacters
-          },
-          {
-            name: "KejsarnAvPortugallien",
-            completedpages: 0,
-            totalpages: books[2].totalpages,
-            totaltcharacters: books[2].totaltcharacters
-          }
-        ]
-      }
-
-      localStorage.setItem("bookdata", JSON.stringify(bookdata))
-
-      // Insert completed pages info into the page:
-      const bookCards = document.querySelectorAll(".bookCard")
-      bookCards.forEach((bookCard, index) => {
-        bookCard.querySelector(".completed").innerHTML = bookdata.books[index].completedpages
-      })
-    } else {
-      // If bookdata object exists, check if it is up to date:
-      const bookdata = JSON.parse(localStorage.getItem("bookdata"))
-      // Insert completed pages info into the page:
-      const bookCards = document.querySelectorAll(".bookCard")
-      bookCards.forEach((bookCard, index) => {
-        bookCard.querySelector(".completed").innerHTML = bookdata.books[index].completedpages
-      })
-    }
-  })
-
   return (
     <>
       <Head>
@@ -108,23 +63,6 @@ export default function Home({ books }) {
                 Karin Boye
               </Text>
               <Text
-                className="completed"
-                as="p"
-                fontFamily={"Merrriweather"}
-                fontSize={"xs"}
-                textAlign="left"
-                display={"inline-flex"}
-              ></Text>
-              <Text
-                as="p"
-                fontFamily={"Merrriweather"}
-                fontSize={"xs"}
-                textAlign="left"
-                display={"inline-flex"}
-              >
-                &nbsp;av&nbsp;
-              </Text>
-              <Text
                 as="p"
                 fontFamily={"Merrriweather"}
                 fontSize={"xs"}
@@ -157,23 +95,6 @@ export default function Home({ books }) {
               </Heading>
               <Text as="p" fontFamily={"Merrriweather"} textAlign="left">
                 Hjalmar Söderberg
-              </Text>
-              <Text
-                className="completed"
-                as="p"
-                fontFamily={"Merrriweather"}
-                fontSize={"xs"}
-                textAlign="left"
-                display={"inline-flex"}
-              ></Text>
-              <Text
-                as="p"
-                fontFamily={"Merrriweather"}
-                fontSize={"xs"}
-                textAlign="left"
-                display={"inline-flex"}
-              >
-                &nbsp;av&nbsp;
               </Text>
               <Text
                 as="p"
@@ -209,23 +130,6 @@ export default function Home({ books }) {
               </Heading>
               <Text as="p" fontFamily={"Merrriweather"} size={""} textAlign="left">
                 Selma Lagerlöf
-              </Text>
-              <Text
-                className="completed"
-                as="p"
-                fontFamily={"Merrriweather"}
-                fontSize={"xs"}
-                textAlign="left"
-                display={"inline-flex"}
-              ></Text>
-              <Text
-                as="p"
-                fontFamily={"Merrriweather"}
-                fontSize={"xs"}
-                textAlign="left"
-                display={"inline-flex"}
-              >
-                &nbsp;av&nbsp;
               </Text>
               <Text
                 as="p"

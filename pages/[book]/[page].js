@@ -3,7 +3,9 @@ export async function getStaticProps({ params }) {
   const page = params.page
   const fs = require("fs")
   const path = require("path")
+
   const filePath = path.join(process.cwd(), "public/books/" + book + ".txt")
+
   const fileContent = fs.readFileSync(filePath, "utf8").split("\n")
   return {
     props: {

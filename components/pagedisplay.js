@@ -56,16 +56,6 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
         // Display the next page message.
         const nextParagraph = document.querySelector(".nextParagraph")
         nextParagraph.innerHTML = `Tryck [enter] för nästa sida.`
-
-        const bookdata = JSON.parse(localStorage.getItem("bookdata"))
-        bookdata.books.forEach(book => {
-          if (book.name === bookTitle) {
-            console.log("book.name:", book.name, "completed pages", book.completedpages + 1)
-            book.completedpages = parseInt(pageNumber) + 1
-          }
-        })
-
-        localStorage.setItem("bookdata", JSON.stringify(bookdata))
       }
     } else if (event.key === "Backspace") {
       // Adds the ability to use backspace. For now it serves no purpose.
@@ -130,6 +120,7 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 
       <Text
         id="pageBooktext"
+        className="pageBooktext"
         fontSize="2xl"
         border={"0px solid"}
         ref={keypressRef}

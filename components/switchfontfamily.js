@@ -1,62 +1,62 @@
 // React libraries:
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react"
 
 // Chakra UI libraries:
-import { Box, Text } from '@chakra-ui/react'
-import { Tabs, TabList, Tab } from '@chakra-ui/react'
+import { Box, Text } from "@chakra-ui/react"
+import { Tabs, TabList, Tab } from "@chakra-ui/react"
 
 export default function SwitchFontFamily() {
-	const [tabIndex, setTabIndex] = useState(0)
+  const [tabIndex, setTabIndex] = useState(0)
 
-	const handleSliderChange = event => {
-		setTabIndex(parseInt(event.target.value, 10))
-	}
+  const handleSliderChange = event => {
+    setTabIndex(parseInt(event.target.value, 10))
+  }
 
-	const handleTabsChange = index => {
-		setTabIndex(index)
-	}
+  const handleTabsChange = index => {
+    setTabIndex(index)
+  }
 
-	useEffect(() => {
-		const textElement = document.getElementById('pageBooktext')
+  useEffect(() => {
+    const textElement = document.getElementById("pageBooktext")
 
-		if (tabIndex === 0) {
-			textElement.style.fontFamily = 'Roboto, sans-serif'
-		} else if (tabIndex === 1) {
-			textElement.style.fontFamily = 'Merriweather ,serif'
-		} else if (tabIndex === 2) {
-			textElement.style.fontFamily = 'Roboto Mono, monospace'
-		}
-	}, [tabIndex])
+    if (tabIndex === 0) {
+      textElement.style.fontFamily = "Roboto, sans-serif"
+    } else if (tabIndex === 1) {
+      textElement.style.fontFamily = "Merriweather ,serif"
+    } else if (tabIndex === 2) {
+      textElement.style.fontFamily = "Roboto Mono, monospace"
+    }
+  }, [tabIndex])
 
-	return (
-		<Box>
-			<input
-				type="range"
-				min="0"
-				max="2"
-				value={tabIndex}
-				onChange={handleSliderChange}
-				hidden={true}
-			/>
-			<Tabs index={tabIndex} onChange={handleTabsChange}>
-				<TabList>
-					<Tab>
-						<Text fontSize={'xs'} fontFamily="sans-serif">
-							Sans
-						</Text>
-					</Tab>
-					<Tab>
-						<Text fontSize={'xs'} fontFamily="serif">
-							Serif
-						</Text>
-					</Tab>
-					<Tab>
-						<Text fontSize={'xs'} fontFamily="monospace">
-							Monospace
-						</Text>
-					</Tab>
-				</TabList>
-			</Tabs>
-		</Box>
-	)
+  return (
+    <Box>
+      <input
+        type="range"
+        min="0"
+        max="2"
+        value={tabIndex}
+        onChange={handleSliderChange}
+        hidden={true}
+      />
+      <Tabs index={tabIndex} onChange={handleTabsChange}>
+        <TabList>
+          <Tab>
+            <Text fontSize={"xs"} fontFamily="sans-serif">
+              Sans
+            </Text>
+          </Tab>
+          <Tab>
+            <Text fontSize={"xs"} fontFamily="serif">
+              Serif
+            </Text>
+          </Tab>
+          <Tab>
+            <Text fontSize={"xs"} fontFamily="monospace">
+              Monospace
+            </Text>
+          </Tab>
+        </TabList>
+      </Tabs>
+    </Box>
+  )
 }

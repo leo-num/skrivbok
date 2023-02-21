@@ -1,25 +1,35 @@
 {
-  "arrowParens": "avoid",
-  "bracketSpacing": true,
-  "bracketSameLine": false,
-  "jsxBracketSameLine": false,
-  "endOfLine": "lf",
-  "printWidth": 100,
-  "semi": false,
-  "singleQuote": false,
-  "tabWidth": 2,
-  "useTabs": false,
-  "trailingComma": "none",
-  "overrides": [
-    {
-      "files": "*.md",
-      "options": {
-        "printWidth": 120,
-        "useTabs": false,
-        "trailingComma": "none",
-        "arrowParens": "avoid",
-        "proseWrap": "never"
-      }
-    }
-  ]
+	"jsxBracketSameLine": true,
+	"bracketSameLine": false,
+	"arrowParens": "avoid",
+	"bracketSpacing": true,
+	"trailingComma": "all",
+	"singleQuote": false,
+	"endOfLine": "lf",
+	"printWidth": 75,
+	"useTabs": true,
+	"tabWidth": 2,
+	"semi": false,
+
+	"importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+	"importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+	"importOrderCombineTypeAndValueImports": true,
+	"importOrderMergeDuplicateImports": true,
+	"importOrderBuiltinModulesToTop": true,
+	"importOrderCaseInsensitive": true,
+	"importOrderSortSpecifiers": true,
+	"importOrderSeparation": true,
+
+	"overrides": [
+		{
+			"files": "*.md",
+			"options": {
+				"trailingComma": "none",
+				"arrowParens": "avoid",
+				"proseWrap": "never",
+				"printWidth": 120,
+				"useTabs": false
+			}
+		}
+	]
 }

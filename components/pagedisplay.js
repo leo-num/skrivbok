@@ -102,6 +102,7 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 		position,
 		text,
 		hasStarted,
+		router,
 	])
 
 	// MOVE CURSOR

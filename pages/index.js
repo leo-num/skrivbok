@@ -84,7 +84,7 @@ export default function Home({ books }) {
 						</VStack>
 					</Box>
 
-					<Box className="bookCard">
+					{/* <Box className="bookCard">
 						<Link href="/DoktorGlas/0" className="booklink">
 							<Image
 								className="bookCover"
@@ -119,9 +119,9 @@ export default function Home({ books }) {
 								{books[1].totalpages} sidor
 							</Text>
 						</VStack>
-					</Box>
+					</Box> */}
 
-					<Box className="bookCard">
+					{/* <Box className="bookCard">
 						<Link href="/KejsarnAvPortugallien/0" className="booklink">
 							<Image
 								className="bookCover"
@@ -161,7 +161,7 @@ export default function Home({ books }) {
 								{books[2].totalpages} sidor
 							</Text>
 						</VStack>
-					</Box>
+					</Box> */}
 				</Box>
 				<Footer />
 			</Container>

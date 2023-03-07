@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react"
 
 import Pagenumber from "./pagenumber"
 import Pagetitle from "./pagetitle"
-import Timer from "./Timer"
+import Timer from "./timer"
 
 function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 	// define the router

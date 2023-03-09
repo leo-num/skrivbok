@@ -19,6 +19,12 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 	const [position, setPosition] = useState(0)
 	const positionRef = useRef(0)
 
+	useEffect(() => {
+		setIsRunning(false)
+		setStartTime(null)
+		setHasStarted(false)
+	}, [pageNumber])
+
 	// ⌨ KEYDOWN EVENT LISTENER
 	useEffect(() => {
 		const handleKeyDown = event => {
@@ -31,6 +37,9 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 					setHasStarted(true)
 					setIsRunning(true)
 					setStartTime(Date.now())
+				}
+				if (positionRef.current === text.length) {
+					setIsRunning(false)
 				}
 			} else if (event.key === "Backspace") {
 				// Adds the ability to use backspace. For now it serves no purpose.
@@ -50,14 +59,14 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 				nextParagraph.innerHTML = ``
 
 				router.push(`/${bookTitle}/${nextPage}`)
-			} else if (event.key === "ArrowRight") {
+			} else if (event.key === "ArrowRight" && pageNumber < totalPageNumber) {
 				// If the user presses the right arrow key, go to the next page.
 				// Add 1 to the pageNumber, treat them as integers. JS tends to treat them as strings...
 				// Set position to 0, so the user can start typing on the next page.
 				positionRef.current = 0
 				setPosition(0)
 				setErrorCount(0)
-				// setIsRunning(false)
+				setIsRunning(false)
 				const nextPage = parseInt(pageNumber) + 1
 				router.push(`/${bookTitle}/${nextPage}`)
 			} else if (event.key === "ArrowLeft" && pageNumber > 0) {
@@ -67,17 +76,15 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 				positionRef.current = 0
 				setPosition(0)
 				setErrorCount(0)
-				// setIsRunning(false)
+				setIsRunning(false)
 				const nextPage = parseInt(pageNumber) - 1
 				router.push(`/${bookTitle}/${nextPage}`)
-			} else if (position === text.length) {
-				// Stop the timer.
-				setIsRunning(false)
 			} else {
-				// Assume that the user has made an error.
-				setErrorCount(prevErrorCount => prevErrorCount + 1)
+				// Assume that the user has made an error, but only if the timer is running.
+				if (isRunning) {
+					setErrorCount(prevErrorCount => prevErrorCount + 1)
+				}
 			}
-
 			// Used to keep the current line centered in the viewport if scrolling is needed.
 			const spanElement = document.querySelector(".current")
 			spanElement.scrollIntoView({
@@ -103,6 +110,8 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 		text,
 		hasStarted,
 		router,
+		totalPageNumber,
+		isRunning,
 	])
 
 	// MOVE CURSOR
@@ -115,11 +124,7 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 		<>
 			<Container maxW="container.lg" as="main" p="0">
 				<Box width="100%" maxHeight="0" justifyContent="flex-end">
-					<Text
-						fontFamily="monospace"
-						fontSize="xs"
-						pb={3}
-						textAlign="right">
+					<Text fontFamily="monospace" fontSize="xs" pb={3} textAlign="right">
 						<span>Ord på sidan: {book.split(" ").length}</span>
 						<br />
 						<span> {errorCount} fel </span>
@@ -131,17 +136,14 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 				</Box>
 			</Container>
 			<Pagetitle bookTitle={bookTitle} />
-			<Pagenumber
-				pageNumber={pageNumber}
-				totalPageNumber={totalPageNumber}
-			/>
-
+			<Pagenumber pageNumber={pageNumber} totalPageNumber={totalPageNumber} />
+			<Text className="metadata">
+				{position} / {text.length}
+			</Text>
 			<Text id="pageBooktext" fontSize="2xl" outline={"none"}>
 				<span className="textBehind">{text.substring(0, position)}</span>
 
-				<span className="current">
-					{text.substring(position, position + 1)}
-				</span>
+				<span className="current">{text.substring(position, position + 1)}</span>
 
 				{text.substring(position + 1)}
 			</Text>

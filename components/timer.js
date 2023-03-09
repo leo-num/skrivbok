@@ -6,9 +6,14 @@ function Timer({ isRunning, startTime }) {
 	useEffect(() => {
 		let animationFrameId
 
+		// if (!isRunning) {
+		// 	setTimeElapsed(0)
+		// }
+
 		const tick = () => {
 			const timeElapsed = Date.now() - startTime
 			setTimeElapsed(timeElapsed)
+
 			animationFrameId = requestAnimationFrame(tick)
 		}
 

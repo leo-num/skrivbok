@@ -14,7 +14,7 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 	const [startTime, setStartTime] = useState(null)
 	const [hasStarted, setHasStarted] = useState(false)
 
-	const text = book
+	const text = book // refer to the loaded text as "text", not "page" or "book"
 	const [errorCount, setErrorCount] = useState(0)
 	const [position, setPosition] = useState(0)
 	const positionRef = useRef(0)
@@ -48,35 +48,20 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 			} else if (event.key === "Shift") {
 				// Dont count shift as an error.
 			} else if (event.key === "Enter" && position === text.length) {
-				// If the user presses enter at the end of the page, go to the next page.
-				// Add 1 to the pageNumber, treat them as integers. JS tends to treat them as strings...
-				// Set position to 0, so the user can start typing on the next page.
 				positionRef.current = 0
 				setPosition(0)
 				const nextPage = parseInt(pageNumber) + 1
-				// hide the next paragraph text.
-				const nextParagraph = document.querySelector(".nextParagraph")
-				nextParagraph.innerHTML = ``
-
 				router.push(`/${bookTitle}/${nextPage}`)
 			} else if (event.key === "ArrowRight" && pageNumber < totalPageNumber) {
-				// If the user presses the right arrow key, go to the next page.
-				// Add 1 to the pageNumber, treat them as integers. JS tends to treat them as strings...
-				// Set position to 0, so the user can start typing on the next page.
+				// Go to the next page after the fade-out effect completes
 				positionRef.current = 0
 				setPosition(0)
-				setErrorCount(0)
-				setIsRunning(false)
 				const nextPage = parseInt(pageNumber) + 1
 				router.push(`/${bookTitle}/${nextPage}`)
 			} else if (event.key === "ArrowLeft" && pageNumber > 0) {
-				// If the user presses the left arrow key, go to the previous page.
-				// Subtract 1 from the pageNumber, treat them as integers. JS tends to treat them as strings...
-				// Set position to 0, so the user can start typing on the next page.
+				// Go to the next page after the fade-out effect completes
 				positionRef.current = 0
 				setPosition(0)
-				setErrorCount(0)
-				setIsRunning(false)
 				const nextPage = parseInt(pageNumber) - 1
 				router.push(`/${bookTitle}/${nextPage}`)
 			} else {
@@ -140,14 +125,18 @@ function Pagedisplay({ book, bookTitle, pageNumber, totalPageNumber }) {
 			<Text className="metadata">
 				{position} / {text.length}
 			</Text>
-			<Text id="pageBooktext" fontSize="2xl" outline={"none"}>
+			<Text
+				id="pageBooktext" // For font-switching component.
+				fontSize="2xl"
+				outline={"none"}>
 				<span className="textBehind">{text.substring(0, position)}</span>
 
-				<span className="current">{text.substring(position, position + 1)}</span>
+				<span className="current">
+					{text.substring(position, position + 1)}
+				</span>
 
 				{text.substring(position + 1)}
 			</Text>
-			<Text className="nextParagraph"></Text>
 		</>
 	)
 }

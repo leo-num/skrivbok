@@ -12,10 +12,7 @@ export async function getStaticProps({ params }) {
 	const fs = require("fs")
 	const path = require("path")
 
-	const filePath = path.join(
-		process.cwd(),
-		"public/books/" + book + ".txt",
-	)
+	const filePath = path.join(process.cwd(), "public/books/" + book + ".txt")
 
 	const fileContent = fs.readFileSync(filePath, "utf8").split("\n")
 	return {
@@ -61,12 +58,7 @@ export async function getStaticPaths() {
 	}
 }
 
-export default function Book({
-	book,
-	bookTitle,
-	pageNumber,
-	totalPageNumber,
-}) {
+export default function Book({ book, bookTitle, pageNumber, totalPageNumber }) {
 	return (
 		<>
 			<Container maxW="container.lg" as="main" pt="2">
